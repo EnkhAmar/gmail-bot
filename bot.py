@@ -20,6 +20,8 @@ sleep(5)
 create_account_button = driver.find_element(By.XPATH, "//*[contains(text(),'Create account')]")
 create_account_button.click()
 
+create_account_for_me_btn = driver.find_element(By.XPATH, "//*[contains(text(),'For my personal use')]") if driver.find_element(By.XPATH, "//*[contains(text(),'For my personal use')]") else driver.find_element(By.XPATH, "//*[contains(text(),'For myself')]")
+create_account_for_me_btn.click()
 
 """
 TODO: Login using existing account
