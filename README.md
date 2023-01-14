@@ -2,7 +2,7 @@
 
 ------------
 
-The produce a flow chart of *Gmail Bot*:
+The procedure a flow chart of *Gmail Bot*:
 
 ```mermaid
 graph TB
