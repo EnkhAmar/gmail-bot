@@ -6,3 +6,9 @@ https://accounts.google.com/signup/v2/webgradsidvphone?biz=false&cc=MN&continue=
 
 
 ### The link that 'phone number' is optional
+
+
+
+
+###  XPath in Selenium: How to Find & Write? (Text, Contains, AND)
+https://www.guru99.com/xpath-selenium.html
