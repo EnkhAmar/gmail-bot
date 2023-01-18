@@ -20,3 +20,6 @@ https://accounts.google.com/signup/v2/webpersonaldetails?biz=false&cc=MN&continu
 
 ###  XPath in Selenium: How to Find & Write? (Text, Contains, AND)
 https://www.guru99.com/xpath-selenium.html
+
+### Locating Elements
+https://selenium-python.readthedocs.io/locating-elements.html
