@@ -13,6 +13,9 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from time import sleep
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 
 
@@ -64,7 +67,7 @@ class GmailBot:
             self._change_language_to_en()
 
 
-    def login(self):
+    def login(self, username:str, password:str):
         pass
 
     def read_email(self):
@@ -74,7 +77,11 @@ class GmailBot:
         pass
 
 bot = GmailBot()
-bot.create_account({
-    "first_name": "User",
-    "last_name": "User",
-})
+# bot.create_account({
+#     "first_name": "User",
+#     "last_name": "User",
+# })
+bot.login(
+    username=os.getenv("GMAIL_USERNAME"),
+    password=os.getenv("GMAIL_PASSWORD"),
+)
