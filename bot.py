@@ -13,15 +13,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from time import sleep
 
-driver = webdriver.Firefox()
-driver.get("https://gmail.com")
-
-sleep(5)
-create_account_button = driver.find_element(By.XPATH, "//*[contains(text(),'Create account')]")
-create_account_button.click()
-
-create_account_for_me_btn = driver.find_element(By.XPATH, "//*[contains(text(),'For my personal use')]") if driver.find_element(By.XPATH, "//*[contains(text(),'For my personal use')]") else driver.find_element(By.XPATH, "//*[contains(text(),'For myself')]")
-create_account_for_me_btn.click()
 
 """
 TODO: Login using existing account
@@ -33,3 +24,30 @@ TODO: Login using existing account
 4.2. Leave this later
 5. Agree the policy
 """
+
+class GmailBot:
+    def __init__(self) -> None:
+        self.driver = webdriver.Firefox()
+        self.driver.get("https://gmail.com")
+    
+    def __del__(self) -> None:
+        self.driver.close()
+
+    def create_account(self):
+        sleep(3)
+        create_account_button = self.driver.find_element(By.XPATH, "//*[contains(text(),'Create account')]")
+        create_account_button.click()
+        create_account_for_me_btn = self.driver.find_element(By.XPATH, "//*[contains(text(),'For my personal use')]") if self.driver.find_element(By.XPATH, "//*[contains(text(),'For my personal use')]") else self.driver.find_element(By.XPATH, "//*[contains(text(),'For myself')]")
+        create_account_for_me_btn.click()
+
+    def login(self):
+        pass
+
+    def read_email(self):
+        pass
+
+    def send_email(self, message:str, title:str, to:str):
+        pass
+
+bot = GmailBot()
+bot.create_account()
