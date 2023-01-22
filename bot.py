@@ -91,11 +91,11 @@ class GmailBot:
 
 
 bot = GmailBot()
-# bot.create_account({
-#     "first_name": "User",
-#     "last_name": "User",
-# })
-bot.login(
-    username=os.getenv("GMAIL_USERNAME"),
-    password=os.getenv("GMAIL_PASSWORD"),
-)
+bot.create_account({
+    "first_name": "User",
+    "last_name": "User",
+})
+# bot.login(
+#     username=os.getenv("GMAIL_USERNAME"),
+#     password=os.getenv("GMAIL_PASSWORD"),
+# )
