@@ -11,7 +11,7 @@ A[Gmail Bot] -- Login existing account --> C(Login page)
 B --> D{Rhombus}
 C --> D
 ```
-
+Tip: You could put your secret things in .env files
 
 ### How to get update from the branch "main"?
 
