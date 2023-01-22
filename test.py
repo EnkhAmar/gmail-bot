@@ -11,6 +11,11 @@ sleep(5)
 driver.get("https://gmail.com")
 
 sleep(5)
+username_input = driver.find_element(By.ID, "identifierId")
+username_input.clear()
+username_input.send_keys("amaraamaa8899@gmail.com")
+driver.find_element(By.XPATH, "//*[contains(text(), 'Next')]").click()
+
 create_account_button = driver.find_element(By.XPATH, "//*[contains(text(),'Create account')]")
 create_account_button.click()
 

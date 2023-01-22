@@ -66,9 +66,13 @@ class GmailBot:
         if not self._check_default_language():
             self._change_language_to_en()
 
+    def _click_next_btn(self):
+        self.driver.find_element(By.XPATH, "//*[contains(text(), 'Next')]").click()
 
     def login(self, username:str, password:str):
-        pass
+        username_input = self.driver.find_element(By.ID, "identifierId")
+        username_input.send_keys(username)
+        self._click_next_btn()
 
     def read_email(self):
         pass
