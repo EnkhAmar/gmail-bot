@@ -23,3 +23,12 @@ passwd_input.clear()
 passwd_input.send_keys(os.getenv("GMAIL_PASSWORD"))
 driver.find_element(By.XPATH, "//*[contains(text(), 'Next')]").click()
 sleep(5)
+
+
+driver.find_element(By.XPATH, "//*[contains(text(),'Create account')]").click()
+driver.find_element(By.XPATH, "//*[contains(text(),'For my personal use')]").click() if driver.find_element(By.XPATH, "//*[contains(text(),'For my personal use')]") else driver.find_element(By.XPATH, "//*[contains(text(),'For myself')]").click()
+driver.find_element(By.CLASS_NAME, "TquXA").click()
+en = driver.find_elements(By.XPATH, "//div[@class='MocG8c B9IrJb LMgvRb KKjvXb' and @data-value='en']")
+for elem in driver.find_elements(By.XPATH, "//div[@data-value='en']"):
+    if "English (United States)" in elem.text: elem.click()
+en_btn = driver.find_elements(By.CSS_SELECTOR, "div [data-value='en']")

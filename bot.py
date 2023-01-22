@@ -51,11 +51,8 @@ class GmailBot:
         # CLASS_NAME check the element by its classname
         language_list_btn = self.driver.find_element(By.CLASS_NAME, "TquXA")
         language_list_btn.click()  # we could add the click() right after the line above]
-        sleep(1)
-        language_list_btn = self.driver.find_element(
-            By.XPATH, "//div[@data-value='en']")
-        language_list_btn.click()
-        print(language_list_btn)
+        for elem in self.driver.find_elements(By.XPATH, "//div[@data-value='en']"):
+            if "English (United States)" in elem.text: elem.click()
 
     def _goto_signup_page(self):
         sleep(3)
