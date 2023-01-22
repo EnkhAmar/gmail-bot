@@ -12,7 +12,24 @@ driver = webdriver.Firefox()
 sleep(5)
 driver.get("https://gmail.com")
 
-sleep(5)
+importantance_filessssss = driver.find_element(By.ID, "identifierId").clear()
+sleep(3)
+importantance_filessssss.send_keys("tu7138695@gmail.com")
+driver.find_element(
+    By.XPATH, "//*[contains(text(), 'Next')]").click()
+sleep(3)
+driver.find_element(By.NAME, "Passwd").send_keys("Thisistestpassw0rd")
+driver.find_element(
+    By.XPATH, "//*[contains(text(), 'Next')]").click()
+sleep(3)
+driver.find_element(By.XPATH, "//*[contains(text(), 'Compose')]").click()
+driver.find_element(By.XPATH, "//*[contains(text(), 'To')]").send_keys("daoerji.si.2030@Esm.edu.mn")
+haahaha = driver.find_element(By.NAME, "subjectbox").click()
+haahaha.send_keys("Hello")
+driver.find_element(By.CLASS_NAME, "Am Al editable LW-avf tS-tW").send_keys("Test")
+driver.find_element(By.XPATH, "//*[contains(text(), 'Send')]").click()
+
+'''sleep(5)
 username_input = driver.find_element(By.ID, "identifierId")
 username_input.clear()
 username_input.send_keys(os.getenv("GMAIL_USERNAME"))
@@ -22,11 +39,5 @@ passwd_input = driver.find_element(By.NAME, "Passwd")
 passwd_input.clear()
 passwd_input.send_keys(os.getenv("GMAIL_PASSWORD"))
 driver.find_element(By.XPATH, "//*[contains(text(), 'Next')]").click()
-sleep(5)
+sleep(5)'''
 
-
-driver.find_element(By.XPATH, "//*[contains(text(),'Create account')]").click()
-driver.find_element(By.XPATH, "//*[contains(text(),'For my personal use')]").click() if driver.find_element(By.XPATH, "//*[contains(text(),'For my personal use')]") else driver.find_element(By.XPATH, "//*[contains(text(),'For myself')]").click()
-driver.find_element(By.CLASS_NAME, "TquXA").click()
-for elem in driver.find_elements(By.XPATH, "//div[@data-value='en']"):
-    if "English (United States)" in elem.text: elem.click()
