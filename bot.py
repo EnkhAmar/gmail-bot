@@ -90,8 +90,13 @@ class GmailBot:
         pass
 
     def send_email(self, message: str, title: str, to: str):
-        pass
-
+        self.driver.find_element(By.XPATH, "//*[contains(text(), 'Compose')]").click()
+        self.driver.find_element(By.XPATH, "//*[contains(text(), 'To')]").send_keys("daoerji.si.2030@Esm.edu.mn")
+        title = self.driver.find_element(By.NAME, "subjectbox").click()
+        title.send_keys("Hello")
+        message = self.driver.find_element(By.CLASS_NAME, "Am Al editable LW-avf tS-tW")
+        message.send_keys("Test")
+        self.driver.find_element(By.XPATH, "//*[contains(text(), 'Send')]").click()
 
 bot = GmailBot()
 # bot.create_account({
