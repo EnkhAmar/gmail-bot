@@ -68,11 +68,17 @@ class GmailBot:
 
     def _click_next_btn(self):
         self.driver.find_element(By.XPATH, "//*[contains(text(), 'Next')]").click()
+        sleep(3)
 
     def login(self, username:str, password:str):
         username_input = self.driver.find_element(By.ID, "identifierId")
+        username_input.clear()
         username_input.send_keys(username)
         self._click_next_btn()
+        password_input = self.driver.find_element(By.NAME, "Passwd")
+        password_input.send_keys(password)
+        self._click_next_btn()
+
 
     def read_email(self):
         pass
