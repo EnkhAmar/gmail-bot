@@ -15,6 +15,9 @@ from selenium.common.exceptions import NoSuchElementException
 from time import sleep
 from dotenv import load_dotenv
 import os
+import random
+import string
+from datetime import datetime
 load_dotenv()
 
 
@@ -29,6 +32,11 @@ TODO: Login using existing account
 5. Agree the policy
 """
 
+def generate_random_string(length=10, include_number:bool=False, include_symbol=False):
+    letters = string.ascii_letters
+    if include_number: letters += string.digits
+    if include_symbol: letters += "!@#$%^&*()_+=-"
+    return "".join(random.choice(letters) for _ in range(length))
 
 class GmailBot:
     def __init__(self) -> None:
@@ -64,10 +72,23 @@ class GmailBot:
             By.XPATH, "//*[contains(text(),'For my personal use')]") else self.driver.find_element(By.XPATH, "//*[contains(text(),'For myself')]")
         create_account_for_me_btn.click()
 
+    def _fill_sign_up_form(self, data:dict):
+        self.driver.find_element(By.ID, "firstName").send_keys(data['first_name'])
+        self.driver.find_element(By.ID, "lastName").send_keys(data['last_name'])
+        self.driver.find_element(By.ID, "username").send_keys(data['username'])
+        self.driver.find_element(By.NAME, 'Passwd').send_keys(data['password'])
+        self.driver.find_element(By.NAME, 'ConfirmPasswd').send_keys(data['password'])
+        
     def create_account(self, data: dict):
         self._goto_signup_page()
         if not self._check_default_language():
             self._change_language_to_en()
+        if not data["username"]: data["username"] = generate_random_string()
+        if not data["password"]: data["password"] = generate_random_string(length=12, include_number=True, include_symbol=True)
+        self._fill_sign_up_form(data)
+        self._click_next_btn()
+        data["created_at"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        return data
 
     def _click_next_btn(self):
         self.driver.find_element(
@@ -98,12 +119,16 @@ class GmailBot:
         self.driver.find_element(By.XPATH, "//*[contains(text(), 'Send')]").click()
 
 bot = GmailBot()
-bot.create_account({
+user1 = bot.create_account({
     "first_name": "User",
     "last_name": "User",
+    "username": None,
+    "password": None
 })
+print(user1)
 
-bot.login(
-     username=os.getenv("GMAIL_USERNAME"),
-     password=os.getenv("GMAIL_PASSWORD"),
-)
+# bot.login(
+#      username=os.getenv("GMAIL_USERNAME"),
+#      password=os.getenv("GMAIL_PASSWORD"),
+# )
+
