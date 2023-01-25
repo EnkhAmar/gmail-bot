@@ -80,6 +80,10 @@ class GmailBot:
         self.driver.find_element(By.NAME, 'ConfirmPasswd').send_keys(data['password'])
         
     def create_account(self, data: dict):
+        """
+        If username is not given, it will generate username
+        If password is not given, it will generate password
+        """
         self._goto_signup_page()
         if not self._check_default_language():
             self._change_language_to_en()
