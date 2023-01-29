@@ -14,4 +14,5 @@ sleep(2)
 elem.send_keys(Keys.RETURN) # clicks the enter key(return key on macos)
 assert "No results found." not in driver.page_source # checks if the text "No results found." was in the page_source of the driver
 sleep(20)
-driver.close() # closes the driver
+driver.close() # closes the driver 
+# shift command p to open the search
