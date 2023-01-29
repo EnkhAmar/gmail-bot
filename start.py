@@ -13,6 +13,6 @@ elem.send_keys("pycon") # types the word "pycon" inside the search box
 sleep(2)
 elem.send_keys(Keys.RETURN) # clicks the enter key(return key on macos)
 assert "No results found." not in driver.page_source # checks if the text "No results found." was in the page_source of the driver
-sleep(20)
+sleep(2)
 driver.close() # closes the driver 
 # shift command p to open the search
