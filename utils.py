@@ -13,8 +13,9 @@ def save_as_csv(file:str, data:list):
         for item in data:
             appender.writerow(item)
 
-users = [
-    { "id": 1, "first_name": "test", "last_name": "test", "dob": "", "sex": "M", "country_code": "976", "phone": "00000000", "username": "username", "password": "pwd" }
-]
 
-save_as_csv("file.csv", users)
+if __name__ == "__main__":
+    users = [
+        { "id": 1, "first_name": "test", "last_name": "test", "dob": "", "sex": "M", "country_code": "976", "phone": "00000000", "username": "username", "password": "pwd" }
+    ]
+    save_as_csv("file.csv", users)
