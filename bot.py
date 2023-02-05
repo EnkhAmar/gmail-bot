@@ -18,6 +18,7 @@ import os
 import random
 import string
 from datetime import datetime
+from utils import save_as_csv
 load_dotenv()
 
 
@@ -92,6 +93,7 @@ class GmailBot:
         self._fill_sign_up_form(data)
         self._click_next_btn()
         data["created_at"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        self.create_csv_file(data)
         return data
 
     def _click_next_btn(self):
@@ -126,7 +128,11 @@ class GmailBot:
         pass
         #self.driver.find_element(By.ID, ":kn")
         
-        
+    def create_csv_file(self, data:list|dict):
+        if type(data) != "list":
+            data = [data]
+        save_as_csv("users.csv",data)
+        return True
 
 
     def send_email(self, message: str, title: str, to: str):
@@ -141,23 +147,23 @@ class GmailBot:
         self.driver.find_element(By.XPATH, "//*[contains(text(), 'Send')]").click()
 
 bot = GmailBot()
-'''user1 = bot.create_account({
+user1 = bot.create_account({
     "first_name": "User",
     "last_name": "User",
     "username": None,
     "password": None
 })
-print(user1)'''
+print(user1)
 
-bot.login(
-     username = os.getenv("GMAIL_USERNAME"),
-     password = os.getenv("GMAIL_PASSWORD"),
-     phone = os.getenv("PHONE_NUMBER")
-)
+# bot.login(
+#      username = os.getenv("GMAIL_USERNAME"),
+#      password = os.getenv("GMAIL_PASSWORD"),
+#      phone = os.getenv("PHONE_NUMBER")
+# )
 
-bot.send_email(
-    to = os.getenv("TO"),
-    title = os.getenv("TITLE"),
-    message = os.getenv("MESSAGE")
-)
+# bot.send_email(
+#     to = os.getenv("TO"),
+#     title = os.getenv("TITLE"),
+#     message = os.getenv("MESSAGE")
+# )
 
