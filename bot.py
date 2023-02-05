@@ -122,6 +122,7 @@ class GmailBot:
         sleep(3)
 
     def read_email(self):
+        """completed"""
         pass
         #self.driver.find_element(By.ID, ":kn")
         
