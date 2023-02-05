@@ -99,7 +99,7 @@ class GmailBot:
             By.XPATH, "//*[contains(text(), 'Next')]").click()
         sleep(3)
 
-    def login(self, username: str, password: str):
+    def login(self, username: str, password: str, phone: int):
         username_input = self.driver.find_element(By.ID, "identifierId")
         username_input.clear()
         username_input.send_keys(username)
@@ -107,32 +107,56 @@ class GmailBot:
         password_input = self.driver.find_element(By.NAME, "Passwd")
         password_input.send_keys(password)
         self._click_next_btn()
+        '''try:
+            phone_num = self.driver.find_element(By.ID, "phoneNumberId")
+        except NoSuchElementException:
+            phone_num = False
+        if self.driver.find_element(By.ID, "phoneNumberId"):
+            phone_num = self.driver.find_element(By.ID, "phoneNumberId")
+            phone_num.send_keys(phone)
+            self._click_next_btn()'''
+        phone_num = self.driver.find_element(By.ID, "phoneNumberId")
+        phone_num.send_keys(phone)
+        self.driver.find_element(
+            By.XPATH, "//*[contains(text(), 'Next')]").click()
+        sleep(3)
 
     def read_email(self):
         pass
+        #self.driver.find_element(By.ID, ":kn")
+        
+        
+
 
     def send_email(self, message: str, title: str, to: str):
         compose = self.driver.find_element(By.XPATH, "//*[contains(text(), 'Compose')]").click()
         if compose == False:
             self.login()
-        self.driver.find_element(By.XPATH, "//*[contains(text(), 'To')]").send_keys("daoerji.si.2030@Esm.edu.mn")
-        title = self.driver.find_element(By.NAME, "subjectbox").click()
-        title.send_keys("Hello")
-        message = self.driver.find_element(By.CLASS_NAME, "Am Al editable LW-avf tS-tW")
-        message.send_keys("Test")
+        self.driver.find_element(By.XPATH, "//*[contains(text(), 'To')]").send_keys(to)
+        the_title = self.driver.find_element(By.NAME, "subjectbox").click()
+        the_title.send_keys(message)
+        the_message = self.driver.find_element(By.CLASS_NAME, "Am Al editable LW-avf tS-tW")
+        the_message.send_keys(title)
         self.driver.find_element(By.XPATH, "//*[contains(text(), 'Send')]").click()
 
 bot = GmailBot()
-user1 = bot.create_account({
+'''user1 = bot.create_account({
     "first_name": "User",
     "last_name": "User",
     "username": None,
     "password": None
 })
-print(user1)
+print(user1)'''
 
-# bot.login(
-#      username=os.getenv("GMAIL_USERNAME"),
-#      password=os.getenv("GMAIL_PASSWORD"),
-# )
+bot.login(
+     username = os.getenv("GMAIL_USERNAME"),
+     password = os.getenv("GMAIL_PASSWORD"),
+     phone = os.getenv("PHONE_NUMBER")
+)
+
+bot.send_email(
+    to = os.getenv("TO"),
+    title = os.getenv("TITLE"),
+    message = os.getenv("MESSAGE")
+)
 
