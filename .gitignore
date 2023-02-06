@@ -164,3 +164,6 @@ geckodriver.log
 
 # Data
 *.csv
+
+# Screenshots
+*.png
