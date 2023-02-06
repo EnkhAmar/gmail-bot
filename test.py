@@ -23,6 +23,11 @@ driver.find_element(
 sleep(3)
 
 ### Now we are on email list page
+email_table = driver.find_element(By.XPATH, "//div[@class='Cp']//table[@class='F cf zt']")
+mails = email_table.find_elements(By.TAG_NAME, "tr")
 
-
-tr_list = driver.find_elements(By.XPATH, "//div[contains(@class,'Cp')]//div[contains(@class,'F cf zt')]")
+mail = mails[0]
+### 4th td element of tr is the button to read mail
+btn = mail.find_elements(By.TAG_NAME, "td")[4]
+btn.screenshot("test.png")
+btn.click()

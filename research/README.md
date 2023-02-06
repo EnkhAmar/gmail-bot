@@ -23,3 +23,6 @@ https://www.guru99.com/xpath-selenium.html
 
 ### Locating Elements
 https://selenium-python.readthedocs.io/locating-elements.html
+
+### How to selected nested class elements
+https://stackoverflow.com/questions/19035186/how-to-select-element-using-xpath-syntax-on-selenium-for-python
