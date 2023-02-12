@@ -7,8 +7,15 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+useragent = "Mozilla/5.0 (Linux; Android 8.0.0; Pixel 2 XL Build/OPD1.170816.004) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Mobile Safari/537.36"
+profile = webdriver.FirefoxProfile()
+profile.set_preference("general.useragent.override", useragent)
+options = webdriver.FirefoxOptions()
+for arg in ['--disable-web-security', '--allow-running-insecure-content' ]:
+    options.add_argument(arg)
 
-driver = webdriver.Firefox()
+
+driver = webdriver.Firefox(firefox_profile=profile, options=options)
 sleep(5)
 driver.get("https://gmail.com")
 

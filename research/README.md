@@ -26,3 +26,10 @@ https://selenium-python.readthedocs.io/locating-elements.html
 
 ### How to selected nested class elements
 https://stackoverflow.com/questions/19035186/how-to-select-element-using-xpath-syntax-on-selenium-for-python
+
+###  Firefox options
+https://www.programcreek.com/python/example/115596/selenium.webdriver.FirefoxOptions
+
+### "This browser or app may not be secure" error
+https://stackoverflow.com/questions/59515561/this-browser-or-app-may-not-be-secure-error-while-attempting-to-login-in-to-gm/62195934
+https://stackoverflow.com/questions/59515561/this-browser-or-app-may-not-be-secure-error-while-attempting-to-login-in-to-gm
