@@ -147,19 +147,19 @@ class GmailBot:
         self.driver.find_element(By.XPATH, "//*[contains(text(), 'Send')]").click()
 
 bot = GmailBot()
-# user1 = bot.create_account({
-#     "first_name": "User",
-#     "last_name": "User",
-#     "username": None,
-#     "password": None
-# })
-# print(user1)
+user1 = bot.create_account({
+    "first_name": "User",
+    "last_name": "User",
+    "username": None,
+    "password": None
+})
+print(user1)
 
-bot.login(
-     username = os.getenv("GMAIL_USERNAME"),
-     password = os.getenv("GMAIL_PASSWORD"),
-     phone = os.getenv("PHONE_NUMBER")
-)
+# bot.login(
+#      username = os.getenv("GMAIL_USERNAME"),
+#      password = os.getenv("GMAIL_PASSWORD"),
+#      phone = os.getenv("PHONE_NUMBER")
+# )
 
 # bot.send_email(
 #     to = os.getenv("TO"),
