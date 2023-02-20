@@ -34,3 +34,6 @@ https://www.programcreek.com/python/example/115596/selenium.webdriver.FirefoxOpt
 https://stackoverflow.com/questions/59515561/this-browser-or-app-may-not-be-secure-error-while-attempting-to-login-in-to-gm/62195934
 https://stackoverflow.com/questions/59515561/this-browser-or-app-may-not-be-secure-error-while-attempting-to-login-in-to-gm
 https://stackoverflow.com/questions/58873022/how-can-i-make-a-selenium-script-undetectable-using-geckodriver-and-firefox-thro#:~:text=webdriver%20is%20set%20to%20true,be%20used%20to%20avoid%20detection.
+
+### Selenium webdriver: Modifying navigator.webdriver flag to prevent selenium detection
+https://stackoverflow.com/questions/53039551/selenium-webdriver-modifying-navigator-webdriver-flag-to-prevent-selenium-detec
